@@ -28,10 +28,26 @@ const data = {
     name: "Finn",
     age: 25,
     follows: ["f05"]
-  }
+  },
 
   // Implement a function biggestFollower() which returns the name of the individual who follows the most people.
-
+  biggestFollower: function(){
+    let biggest = "";
+    let mostFollows = -1;
+    let followArray = []
+    for (const individual in this) {
+      followArray = this[individual].follows;
+      // Error check to see that the current object actually has follows to count
+      if (followArray) {
+        if (followArray.length > mostFollows) {
+          mostFollows = followArray.length;
+          biggest = individual;
+        }
+      }
+    }
+    // Return the name of the individual who follows the most people
+    return this[biggest].name;
+  }
 
   // Implement mostPopular() which returns the name of the most popular (most followed) individual.
 
@@ -48,3 +64,4 @@ const data = {
   // You are encouraged to create some additional functions in order to avoid having very large functions that try to do everything. That said, be sure to name them well. All this may sound familiar - that's because it was covered recently as part of our Function Best Practices series yesterday.
 
 };
+console.log(data.biggestFollower())
