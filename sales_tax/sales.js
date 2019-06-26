@@ -26,5 +26,9 @@ const companySalesData = [
 
 
 const calculateSalesTax = function(salesData, taxRates) {
-  // Implement your code here
+  // Iterate through each object within company sales data
+    // calculate the total sales for the company
+    // Determine the tax rate for the province for the company
+    // Multiply total sales by tax rate for company
+    // Store values into keys for the company
 }
