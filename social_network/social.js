@@ -35,6 +35,7 @@ const data = {
     let biggest = "";
     let mostFollows = -1;
     let followArray = [];
+
     for (const individual in this) {
       followArray = this[individual].follows;
       // Error check to see that the current object actually has follows to count
@@ -47,9 +48,21 @@ const data = {
     }
     // Return the name of the individual who follows the most people
     return this[biggest].name;
-  }
+  },
 
   // Implement mostPopular() which returns the name of the most popular (most followed) individual.
+  mostPopular: function() {
+    // Loop through all individuals in the data object
+      // For each individual, run the countFollowers function to add to the total count of follows in ongoing object
+    
+    // Determine which individual has the most followers by reviewing the created object
+
+    // Return Largest
+  },
+
+  countFollowers: function(numberOfFollows) {
+
+  }
 
   // Implement printAll() which outputs a list of everyone and for each of them, the names of who they follow and who follows them.
 
