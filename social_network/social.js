@@ -52,17 +52,39 @@ const data = {
 
   // Implement mostPopular() which returns the name of the most popular (most followed) individual.
   mostPopular: function() {
+    let followCount = {};
+    let followArray = [];
+
     // Loop through all individuals in the data object
-      // For each individual, run the countFollowers function to add to the total count of follows in ongoing object
+    for (const individual in this) {
+      // Check that the current object is an individual (aka has follows to count)
+      followArray = this[individual].follows;
+      if (followArray) {
+        // For each individual, run the countFollowers function to add to the total count of follows in ongoing object
+        followCount = this.countFollowers(followCount, followArray);
+      }
+    }
+    console.log(followCount);
     
     // Determine which individual has the most followers by reviewing the created object
+
 
     // Return Largest
   },
 
-  countFollowers: function(numberOfFollows) {
+  countFollowers: function(numberOfFollowsObject, followArray) {
+    for (const personFollowed of followArray) {
+      // Check whether the person being followed already exists in the current numberOfFollows object.
+      if (numberOfFollowsObject[personFollowed]) {
+        numberOfFollowsObject[personFollowed] += 1;
+      } else {
+        numberOfFollowsObject[personFollowed] = 1;
+      }
+    }
+    return numberOfFollowsObject;
+  },
 
-  }
+  
 
   // Implement printAll() which outputs a list of everyone and for each of them, the names of who they follow and who follows them.
 
@@ -77,4 +99,4 @@ const data = {
   // You are encouraged to create some additional functions in order to avoid having very large functions that try to do everything. That said, be sure to name them well. All this may sound familiar - that's because it was covered recently as part of our Function Best Practices series yesterday.
 
 };
-console.log(data.biggestFollower());
+console.log(data.mostPopular());
